@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Link } from "react-router-dom";
+
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -20,6 +22,7 @@ import ApiOutlinedIcon from '@mui/icons-material/ApiOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import KeyIcon from '@mui/icons-material/Key';
+import { functionalityList } from '../utils/constants';
 
 
 const drawerWidth = 240;
@@ -121,7 +124,9 @@ export default function AppDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Samsung PRISM
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+              Samsung PRISM
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -133,26 +138,28 @@ export default function AppDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-            {['CWT', 'JWT', 'Encryption', 'Decryption', 'Key generation'].map((text, index) => (
-            <ListItemButton
-              key={text}
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? 'initial' : 'center',
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
+          {functionalityList.map((text, index) => (
+            <Link to={"/" + text} style={{ textDecoration: 'none', color: 'white' }}>
+              <ListItemButton
+                key={text}
                 sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : 'auto',
-                  justifyContent: 'center',
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5,
                 }}
               >
-                {iconsList[index]}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {iconsList[index]}
+                </ListItemIcon>
+                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </Link>
           ))}
         </List>
       </Drawer>
