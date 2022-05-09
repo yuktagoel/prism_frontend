@@ -139,7 +139,7 @@ export default function AppDrawer() {
         <Divider />
         <List>
           {functionalityList.map((text, index) => (
-            <Link to={"/" + text} style={{ textDecoration: 'none', color: 'white' }}>
+            <Link key={index} to={"/" + text} style={{ textDecoration: 'none', color: 'white' }}>
               <ListItemButton
                 key={text}
                 sx={{

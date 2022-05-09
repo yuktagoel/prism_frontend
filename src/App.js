@@ -33,7 +33,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               {functionalityList.map((functionality, index) => (
-                <Route path={functionality} element={componentsList[index]} />
+                <Route key={index} path={functionality} element={componentsList[index]} />
               ))}
             </Routes>
           </header>
