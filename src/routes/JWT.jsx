@@ -1,7 +1,13 @@
+import Button from '@mui/material/Button';
+import RadioButton from "../components/RadioButton";
 
 function JWT() {
     return <>
-        JWT
+        <h1>JWT</h1>
+
+        <RadioButton options={['ES256', 'ED25519']} />
+        <br />
+        <Button variant="outlined" size="large" color="success">SUBMIT</Button>
     </>;
 }
 

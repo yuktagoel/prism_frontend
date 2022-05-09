@@ -1,7 +1,7 @@
 
 function Home() {
     return <>
-        Samsung PRISM
+        <h1>Samsung PRISM</h1>
     </>;
 }
 
