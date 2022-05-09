@@ -7,7 +7,8 @@ function JWT() {
 
         <RadioButton options={['ES256', 'ED25519']} />
         <br />
-        <Button variant="outlined" size="large" color="success">SUBMIT</Button>
+
+        <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
 

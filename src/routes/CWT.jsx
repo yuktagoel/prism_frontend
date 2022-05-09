@@ -7,7 +7,8 @@ function CWT() {
 
         <RadioButton options={['ED25519', 'ECDSA256']} />
         <br />
-        <Button variant="outlined" size="large" color="success">SUBMIT</Button>
+        
+        <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
 

@@ -7,7 +7,8 @@ function KeyGeneration() {
 
         <RadioButton options={['ECDSA', 'Curve25519', 'RSA', 'EDDSA']} />
         <br />
-        <Button variant="outlined" size="large" color="success">SUBMIT</Button>
+        
+        <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
 
