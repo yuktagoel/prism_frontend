@@ -33,7 +33,7 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function TokenMenu({ token }) {
+export default function ValidationMenu({ token }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {

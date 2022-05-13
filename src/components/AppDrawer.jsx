@@ -22,6 +22,7 @@ import ApiOutlinedIcon from '@mui/icons-material/ApiOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import KeyIcon from '@mui/icons-material/Key';
+import FingerprintIcon from '@mui/icons-material/Fingerprint';
 
 import { functionalityList } from '../utils/constants';
 
@@ -97,7 +98,7 @@ export default function AppDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const iconsList = [<FilterTiltShiftIcon />, <ApiOutlinedIcon />, <LockOutlinedIcon />, <LockOpenIcon />, <KeyIcon />];
+  const iconsList = [<FilterTiltShiftIcon />, <ApiOutlinedIcon />, <LockOutlinedIcon />, <LockOpenIcon />, <KeyIcon />, <FingerprintIcon />];
 
   const handleDrawerOpen = () => {
     setOpen(true);

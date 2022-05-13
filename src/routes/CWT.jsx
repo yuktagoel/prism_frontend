@@ -1,6 +1,6 @@
 import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
-import TokenMenu from '../components/TokenMenu';
+import ValidationMenu from '../components/ValidationMenu';
 
 function CWT() {
     return <>
@@ -9,7 +9,7 @@ function CWT() {
         <RadioButton options={['ES256', 'ED25519']} />
         <br />
 
-        <TokenMenu token={"CWT"} />
+        <ValidationMenu token={"CWT"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
