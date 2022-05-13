@@ -13,7 +13,7 @@ function Encryption() {
         <TextField label="Text to be encrypted" variant="standard" color="warning" style={{ width: 350, marginTop: 30 }} />
 
         <Stack direction="row" spacing={2} margin={4}>
-            <TextField placeholder="Primary Key" variant="outlined" color="warning" />
+            <TextField placeholder="Private Key" variant="outlined" color="warning" />
             <TextField placeholder="Public Key" variant="outlined" color="warning" />
         </Stack>
 
