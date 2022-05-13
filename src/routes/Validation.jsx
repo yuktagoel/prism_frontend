@@ -2,16 +2,16 @@ import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
 import ValidationMenu from '../components/ValidationMenu';
 
-function CWT() {
+function Validation() {
     return <>
-        <h1>CWT</h1>
+        <h1>Validation</h1>
 
-        <RadioButton options={['ES256', 'ED25519']} />
+        <RadioButton options={['RSA', 'ED25519']} />
         <br />
 
-        <ValidationMenu inputLabel={"Key ID"} token={"CWT"} />
+        <ValidationMenu inputLabel={"Text"} token={"Signature"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
 
-export default CWT;
+export default Validation;

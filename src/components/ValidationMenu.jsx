@@ -33,7 +33,7 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function ValidationMenu({ token }) {
+export default function ValidationMenu({ inputLabel, token }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -55,7 +55,7 @@ export default function ValidationMenu({ token }) {
         <Tab label="Verify & Decode" />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <TextField label="Key ID" variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
+        <TextField label={inputLabel} variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
         <TextField label="Private Key" placeholder="(optional)" variant="outlined" color="warning" margin="normal" style={{ width: 350 }} />
       </TabPanel>
       <TabPanel value={value} index={1}>

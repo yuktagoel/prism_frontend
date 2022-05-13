@@ -14,6 +14,7 @@ import JWT from "./routes/JWT";
 import Encryption from "./routes/Encryptions";
 import Decryption from "./routes/Decryption";
 import KeyGeneration from "./routes/KeyGeneration";
+import Validation from "./routes/Validation";
 
 const darkTheme = createTheme({
   palette: {
@@ -22,7 +23,7 @@ const darkTheme = createTheme({
 });
 
 function App() {
-  const componentsList = [<CWT />, <JWT />, <Encryption />, <Decryption />, <KeyGeneration />];
+  const componentsList = [<CWT />, <JWT />, <Encryption />, <Decryption />, <KeyGeneration />, <Validation />];
 
   return (
     <BrowserRouter>

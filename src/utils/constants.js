@@ -1,1 +1,1 @@
-export const functionalityList = ['CWT', 'JWT', 'Encryption', 'Decryption', 'KeyGeneration'];
+export const functionalityList = ['CWT', 'JWT', 'Encryption', 'Decryption', 'KeyGeneration', 'Validation'];

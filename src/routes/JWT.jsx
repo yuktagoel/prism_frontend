@@ -9,7 +9,7 @@ function JWT() {
         <RadioButton options={['ES256', 'ED25519']} />
         <br />
 
-        <ValidationMenu token={"JWT"} />
+        <ValidationMenu inputLabel={"Key ID"} token={"JWT"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
