@@ -17,11 +17,12 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import AllOutIcon from '@mui/icons-material/AllOut';
+import FilterTiltShiftIcon from '@mui/icons-material/FilterTiltShift';
 import ApiOutlinedIcon from '@mui/icons-material/ApiOutlined';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import KeyIcon from '@mui/icons-material/Key';
+
 import { functionalityList } from '../utils/constants';
 
 
@@ -96,7 +97,7 @@ export default function AppDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const iconsList = [<AllOutIcon />, <ApiOutlinedIcon />, <LockOutlinedIcon />, <LockOpenIcon />, <KeyIcon />];
+  const iconsList = [<FilterTiltShiftIcon />, <ApiOutlinedIcon />, <LockOutlinedIcon />, <LockOpenIcon />, <KeyIcon />];
 
   const handleDrawerOpen = () => {
     setOpen(true);
