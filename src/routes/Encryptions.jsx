@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -5,10 +6,18 @@ import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
 
 function Encryption() {
+    const algorithmList = ['Curve25519', 'RSA', 'ED25519'];
+
+    const [algorithm, setAlgorithm] = useState(algorithmList[0]);
+
+    const handleAlgorithmChange = (value) => {
+        setAlgorithm(value);
+    };
+
     return <>
         <h1>Encryption</h1>
 
-        <RadioButton options={['Curve25519', 'RSA', 'ED25519']} />
+        <RadioButton options={algorithmList} handleRadioChange={handleAlgorithmChange} />
 
         <TextField label="Text to be encrypted" variant="standard" color="warning" style={{ width: 350, marginTop: 30 }} />
 
