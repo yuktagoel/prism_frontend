@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
 
 function KeyGeneration() {
-    const algorithmList = ['ES256', 'ED25519'];
+    const algorithmList = ['ECDSA', 'Curve25519', 'RSA', 'EDDSA'];
 
     const [algorithm, setAlgorithm] = useState(algorithmList[0]);
 

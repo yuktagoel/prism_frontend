@@ -18,7 +18,7 @@ function JWT() {
         <RadioButton options={algorithmList} handleRadioChange={handleAlgorithmChange} />
         <br />
 
-        <ValidationMenu inputLabel={"Key ID"} token={"JWT"} />
+        <ValidationMenu signLabel={"Key ID"} verifyLabel={"JWT"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }

@@ -18,7 +18,7 @@ function CWT() {
         <RadioButton options={algorithmList} handleRadioChange={handleAlgorithmChange} />
         <br />
 
-        <ValidationMenu inputLabel={"Key ID"} token={"CWT"} />
+        <ValidationMenu signLabel={"Key ID"} verifyLabel={"CWT"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }

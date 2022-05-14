@@ -4,7 +4,6 @@ import {
   Route,
 } from "react-router-dom";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import './App.css';
 import { functionalityList } from "./utils/constants";
 import AppDrawer from './components/AppDrawer'

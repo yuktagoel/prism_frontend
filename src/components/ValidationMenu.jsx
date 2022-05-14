@@ -33,11 +33,11 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function ValidationMenu({ inputLabel, token }) {
-  const [value, setValue] = React.useState(0);
+export default function ValidationMenu({ signLabel, verifyLabel }) {
+  const [tabIndexValue, setTabIndexValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setTabIndexValue(newValue);
   };
 
   return (
@@ -46,7 +46,7 @@ export default function ValidationMenu({ inputLabel, token }) {
     >
       <Tabs
         orientation="vertical"
-        value={value}
+        value={tabIndexValue}
         onChange={handleChange}
         textColor="secondary"
         indicatorColor="secondary"
@@ -54,12 +54,12 @@ export default function ValidationMenu({ inputLabel, token }) {
         <Tab label="Generate & Sign" />
         <Tab label="Verify & Decode" />
       </Tabs>
-      <TabPanel value={value} index={0}>
-        <TextField label={inputLabel} variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
+      <TabPanel value={tabIndexValue} index={0}>
+        <TextField label={signLabel} variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
         <TextField label="Private Key" placeholder="(optional)" variant="outlined" color="warning" margin="normal" style={{ width: 350 }} />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <TextField label={token} variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
+      <TabPanel value={tabIndexValue} index={1}>
+        <TextField label={verifyLabel} variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
         <TextField label="Public Key" variant="outlined" color="error" margin="normal" style={{ width: 350 }} />
       </TabPanel>
     </Box>

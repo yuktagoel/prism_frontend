@@ -18,7 +18,7 @@ function Validation() {
         <RadioButton options={algorithmList} handleRadioChange={handleAlgorithmChange} />
         <br />
 
-        <ValidationMenu inputLabel={"Text"} token={"Signature"} />
+        <ValidationMenu signLabel={"Text"} verifyLabel={"Signature"} />
         <Button variant="contained" size="large" color="success">SUBMIT</Button>
     </>;
 }
