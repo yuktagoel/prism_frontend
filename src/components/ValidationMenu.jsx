@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -33,11 +32,39 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function ValidationMenu({ signLabel, verifyLabel }) {
+export default function ValidationMenu({ signLabel, verifyLabel, setInputData }) {
   const [tabIndexValue, setTabIndexValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
+  const [sign, setSign] = React.useState();
+  const [verify, setVerify] = React.useState();
+
+  const [privateKey, setPrivateKey] = React.useState();
+  const [publicKey, setPublicKey] = React.useState();
+
+  const handleTabsChange = (_, newValue) => {
     setTabIndexValue(newValue);
+    setInputData(prevData => { return { ...prevData, tab: newValue } });
+  };
+
+  const handleSignChange = (event) => {
+    setSign(event.target.value);
+    setInputData(prevData => { return { ...prevData, sign: event.target.value } });
+  };
+
+  const handleVerifyChange = (event) => {
+    setVerify(event.target.value);
+    setInputData(prevData => { return { ...prevData, verify: event.target.value } });
+    console.log(event.target.value);
+  };
+
+  const handlePrivateKeyChange = (event) => {
+    setPrivateKey(event.target.value);
+    setInputData(prevData => { return { ...prevData, privateKey: event.target.value } });
+  };
+
+  const handlePublicKeyChange = (event) => {
+    setPublicKey(event.target.value);
+    setInputData(prevData => { return { ...prevData, publicKey: event.target.value } });
   };
 
   return (
@@ -47,7 +74,7 @@ export default function ValidationMenu({ signLabel, verifyLabel }) {
       <Tabs
         orientation="vertical"
         value={tabIndexValue}
-        onChange={handleChange}
+        onChange={handleTabsChange}
         textColor="secondary"
         indicatorColor="secondary"
       >
@@ -55,12 +82,12 @@ export default function ValidationMenu({ signLabel, verifyLabel }) {
         <Tab label="Verify & Decode" />
       </Tabs>
       <TabPanel value={tabIndexValue} index={0}>
-        <TextField label={signLabel} variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
-        <TextField label="Private Key" placeholder="(optional)" variant="outlined" color="warning" margin="normal" style={{ width: 350 }} />
+        <TextField label={signLabel} variant="standard" color="warning" margin="none" style={{ width: 350, marginBottom: 3 }} value={sign} onChange={handleSignChange} /> <br />
+        <TextField label="Private Key" placeholder="(optional)" variant="outlined" color="warning" margin="normal" style={{ width: 350 }} value={privateKey} onChange={handlePrivateKeyChange} />
       </TabPanel>
       <TabPanel value={tabIndexValue} index={1}>
-        <TextField label={verifyLabel} variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} /> <br />
-        <TextField label="Public Key" variant="outlined" color="error" margin="normal" style={{ width: 350 }} />
+        <TextField label={verifyLabel} variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} value={verify} onChange={handleVerifyChange} /> <br />
+        <TextField label="Public Key" variant="outlined" color="error" margin="normal" style={{ width: 350 }} value={publicKey} onChange={handlePublicKeyChange} />
       </TabPanel>
     </Box>
   );
