@@ -44,7 +44,7 @@ function CWT() {
         <br />
 
         <ValidationMenu signLabel={"Key ID"} verifyLabel={"CWT"} setInputData={setInputData} />
-        <Button variant="contained" size="large" color="success" onClick={handleClick} >SUBMIT</Button>
+        <Button variant="contained" size="large" color="success" onClick={handleClick}>SUBMIT</Button>
 
         {showModal && <AppModal setShowModal={setShowModal} displayObject={displayObject} />}
     </>;

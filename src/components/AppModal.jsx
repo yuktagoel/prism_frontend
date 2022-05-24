@@ -23,8 +23,6 @@ export default function AppModal({ setShowModal, displayObject }) {
     setShowModal(false);
   }
 
-  console.log(displayObject);
-
   return (
     <div>
       <Modal
@@ -35,7 +33,7 @@ export default function AppModal({ setShowModal, displayObject }) {
       >
         <Box sx={style}>
           {Object.keys(displayObject).map(key =>
-            <>
+            <div key={key}>
               <Typography id="modal-modal-title" variant="h5" component="h2" color={"lightBlue"}>
                 {key} :
               </Typography>
@@ -43,7 +41,7 @@ export default function AppModal({ setShowModal, displayObject }) {
                 {displayObject[key]}
               </Typography>
               <br />
-            </>
+            </div>
           )}
         </Box>
       </Modal>

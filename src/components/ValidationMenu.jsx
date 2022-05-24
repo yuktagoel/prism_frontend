@@ -41,6 +41,8 @@ export default function ValidationMenu({ signLabel, verifyLabel, setInputData })
   const [privateKey, setPrivateKey] = React.useState();
   const [publicKey, setPublicKey] = React.useState();
 
+  const [plainText, setPlainText] = React.useState();
+
   const handleTabsChange = (_, newValue) => {
     setTabIndexValue(newValue);
     setInputData(prevData => { return { ...prevData, tab: newValue } });
@@ -67,6 +69,11 @@ export default function ValidationMenu({ signLabel, verifyLabel, setInputData })
     setInputData(prevData => { return { ...prevData, publicKey: event.target.value } });
   };
 
+  const handlePlainTextChange = (event) => {
+    setPlainText(event.target.value);
+    setInputData(prevData => { return { ...prevData, plainText: event.target.value } });
+  };
+
   return (
     <Box
       sx={{ flexGrow: 0.15, display: 'flex' }}
@@ -86,6 +93,7 @@ export default function ValidationMenu({ signLabel, verifyLabel, setInputData })
         <TextField label="Private Key" placeholder="(optional)" variant="outlined" color="warning" margin="normal" style={{ width: 350 }} value={privateKey} onChange={handlePrivateKeyChange} />
       </TabPanel>
       <TabPanel value={tabIndexValue} index={1}>
+        {verifyLabel === "Signature" && <> <TextField label="Plain Text" variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} value={plainText} onChange={handlePlainTextChange} /> <br /> </>}
         <TextField label={verifyLabel} variant="standard" color="error" margin="none" style={{ width: 350, marginBottom: 3 }} value={verify} onChange={handleVerifyChange} /> <br />
         <TextField label="Public Key" variant="outlined" color="error" margin="normal" style={{ width: 350 }} value={publicKey} onChange={handlePublicKeyChange} />
       </TabPanel>

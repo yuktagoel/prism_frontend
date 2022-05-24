@@ -46,14 +46,16 @@ export default class API {
             .catch(e => console.log(e));
     }
 
-    static async sign({ text, privateKey }, algorithm) {
-        return await axios.post(apiURL + 'sign/' + algorithm.toLowerCase(), { text, privateKey })
+    static async sign({ plainText, privateKey }, algorithm) {
+        console.log('hey');
+        console.log(plainText);
+        return await axios.post(apiURL + 'sign/' + algorithm.toLowerCase(), { plainText, privateKey })
             .then(res => res.data)
             .catch(e => console.log(e));
     }
 
-    static async verify({ signature, publicKey }, algorithm) {
-        return await axios.post(apiURL + 'verify/' + algorithm.toLowerCase(), { signature, publicKey })
+    static async verify({ signature, publicKey, plainText }, algorithm) {
+        return await axios.post(apiURL + 'verify/' + algorithm.toLowerCase(), { signature, publicKey, plainText })
             .then(res => res.data)
             .catch(e => console.log(e));
     }
