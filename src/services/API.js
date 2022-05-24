@@ -11,7 +11,7 @@ export default class API {
     }
 
     static async genCWT({ kid, privateKey }, algorithm) {
-        return await axios.get(apiURL + 'cwt/generate/' + algorithm.toLowerCase())
+        return await axios.post(apiURL + 'cwt/generate/' + algorithm.toLowerCase(), { kid })
             .then(res => res.data)
             .catch(e => console.log(e));
     }

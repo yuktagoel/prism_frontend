@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
+import AppModal from '../components/AppModal';
 import API from '../services/API.js';
 
 function KeyGeneration() {
-    const [privateKey, setPrivateKey] = useState();
-    const [publicKey, setPublicKey] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [displayObject, setDisplayObject] = useState({});
 
     const algorithmList = ['ED25519', 'Curve25519', 'RSA', 'ECDSA'];
 
@@ -15,8 +16,11 @@ function KeyGeneration() {
 
     const handleClick = async () => {
         const { encodedPriKey, encodedPubKey } = await API.genKey(algorithm);
-        setPrivateKey(encodedPriKey);
-        setPublicKey(encodedPubKey);
+        setDisplayObject({
+            "Private Key": encodedPriKey,
+            "Public Key": encodedPubKey
+        });
+        setShowModal(true);
     }
 
     return <>
@@ -27,8 +31,7 @@ function KeyGeneration() {
 
         <Button variant="contained" size="large" color="success" onClick={handleClick}>SUBMIT</Button>
 
-        {privateKey && <p> Private Key : {privateKey}</p>}
-        {publicKey && <p> Public Key : {publicKey}</p>}
+        {showModal && <AppModal setShowModal={setShowModal} displayObject={displayObject} />}
     </>;
 }
 

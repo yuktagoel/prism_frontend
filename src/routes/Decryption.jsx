@@ -3,6 +3,7 @@ import { Stack } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import RadioButton from "../components/RadioButton";
+import AppModal from '../components/AppModal';
 import API from '../services/API';
 
 function Decryption() {
@@ -13,7 +14,8 @@ function Decryption() {
     const [privateKey, setPrivateKey] = useState();
     const [publicKey, setPublicKey] = useState();
 
-    const [text, setText] = useState();
+    const [showModal, setShowModal] = useState(false);
+    const [displayObject, setDisplayObject] = useState({});
 
     const algorithmList = ['Curve25519', 'RSA', 'ED25519'];
 
@@ -23,7 +25,10 @@ function Decryption() {
 
     const handleClick = async () => {
         const { plainText } = await API.decrypt({ cipherText, privateKey, publicKey, nonce, secretKey }, algorithm);
-        setText(plainText);
+        setDisplayObject({
+            "Decrypted Text": plainText,
+        });
+        setShowModal(true);
     }
 
     return <>
@@ -31,7 +36,7 @@ function Decryption() {
 
         <RadioButton options={algorithmList} handleRadioChange={handleAlgorithmChange} />
 
-        <TextField label="Text to be encrypted" variant="standard" color="warning" style={{ width: 350, marginTop: 30 }} value={cipherText} onChange={e => setCipherText(e.target.value)} />
+        <TextField label="Text to be decrypted" variant="standard" color="warning" style={{ width: 350, marginTop: 30 }} value={cipherText} onChange={e => setCipherText(e.target.value)} />
 
         <Stack direction="row" spacing={2} margin={4}>
             <TextField placeholder="Private Key" variant="outlined" color="warning" value={privateKey} onChange={e => setPrivateKey(e.target.value)} />
@@ -42,8 +47,7 @@ function Decryption() {
 
         <Button variant="contained" size="large" color="success" onClick={handleClick}>SUBMIT</Button>
 
-        <br />
-        {text && <p>Decrypted Text: {text}</p>}
+        {showModal && <AppModal setShowModal={setShowModal} displayObject={displayObject} />}
     </>;
 }
 
