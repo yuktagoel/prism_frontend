@@ -14,6 +14,7 @@ import Encryption from "./routes/Encryptions";
 import Decryption from "./routes/Decryption";
 import KeyGeneration from "./routes/KeyGeneration";
 import Validation from "./routes/Validation";
+import ErrorSnackbar from "./components/ErrorSnackbar";
 
 const darkTheme = createTheme({
   palette: {

@@ -7,12 +7,12 @@ import AppModal from '../components/AppModal';
 import API from '../services/API';
 
 function Decryption() {
-    const [cipherText, setCipherText] = useState();
-    const [nonce, setNonce] = useState();
-    const [secretKey, setSecretKey] = useState();
+    const [cipherText, setCipherText] = useState('');
+    const [nonce, setNonce] = useState('');
+    const [secretKey, setSecretKey] = useState('');
 
-    const [privateKey, setPrivateKey] = useState();
-    const [publicKey, setPublicKey] = useState();
+    const [privateKey, setPrivateKey] = useState('');
+    const [publicKey, setPublicKey] = useState('');
 
     const [showModal, setShowModal] = useState(false);
     const [displayObject, setDisplayObject] = useState({});

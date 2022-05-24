@@ -22,6 +22,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import KeyIcon from '@mui/icons-material/Key';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import Tooltip from '@mui/material/Tooltip';
 import { functionalityList } from '../utils/constants';
 
 
@@ -140,6 +141,7 @@ export default function AppDrawer() {
         <List>
           {functionalityList.map((text, index) => (
             <Link key={index} to={"/" + text} style={{ textDecoration: 'none', color: 'white' }}>
+              <Tooltip title={text} placement={'right'} arrow>
               <ListItemButton
                 key={text}
                 sx={{
@@ -159,6 +161,7 @@ export default function AppDrawer() {
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
+              </Tooltip>
             </Link>
           ))}
         </List>

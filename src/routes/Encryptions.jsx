@@ -7,9 +7,9 @@ import AppModal from '../components/AppModal';
 import API from '../services/API';
 
 function Encryption() {
-    const [plainText, setPlainText] = useState();
-    const [privateKey, setPrivateKey] = useState();
-    const [publicKey, setPublicKey] = useState();
+    const [plainText, setPlainText] = useState('');
+    const [privateKey, setPrivateKey] = useState('');
+    const [publicKey, setPublicKey] = useState('');
 
     const [showModal, setShowModal] = useState(false);
     const [displayObject, setDisplayObject] = useState({});

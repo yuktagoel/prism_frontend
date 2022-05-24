@@ -19,7 +19,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ paddingLeft: 5 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -35,13 +35,13 @@ TabPanel.propTypes = {
 export default function ValidationMenu({ signLabel, verifyLabel, setInputData }) {
   const [tabIndexValue, setTabIndexValue] = React.useState(0);
 
-  const [sign, setSign] = React.useState();
-  const [verify, setVerify] = React.useState();
+  const [sign, setSign] = React.useState('');
+  const [verify, setVerify] = React.useState('');
 
-  const [privateKey, setPrivateKey] = React.useState();
-  const [publicKey, setPublicKey] = React.useState();
+  const [privateKey, setPrivateKey] = React.useState('');
+  const [publicKey, setPublicKey] = React.useState('');
 
-  const [plainText, setPlainText] = React.useState();
+  const [plainText, setPlainText] = React.useState('');
 
   const handleTabsChange = (_, newValue) => {
     setTabIndexValue(newValue);
